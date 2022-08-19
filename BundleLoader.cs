@@ -1,10 +1,11 @@
 ﻿using BepInEx;
+using Il2CppInterop.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnhollowerRuntimeLib;
+//using UnhollowerRuntimeLib;
 using UnityEngine;
 
 namespace RF5.HisaCat.NPCDetails
@@ -43,6 +44,7 @@ namespace RF5.HisaCat.NPCDetails
         public static T LoadIL2CPP<T>(this AssetBundle bundle, string name) where T : UnityEngine.Object
         {
             var asset = bundle.LoadAsset_Internal(name, Il2CppType.Of<T>());
+            //var asset = bundle.LoadAsset(name);
             return asset == null ? null : asset.TryCast<T>();
         }
     }

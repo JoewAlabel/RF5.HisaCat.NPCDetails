@@ -5,26 +5,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnhollowerRuntimeLib;
+//using UnhollowerRuntimeLib;
 using UnityEngine;
 using RF5.HisaCat.NPCDetails.Utils;
+using BepInEx.Unity.IL2CPP;
+using Il2CppInterop.Runtime.Injection;
 
 namespace RF5.HisaCat.NPCDetails
 {
     [BepInPlugin(GUID, MODNAME, VERSION)]
-    internal class BepInExLoader : BepInEx.IL2CPP.BasePlugin
+    //internal class BepInExLoader : BepInEx.IL2CPP.BasePlugin
+    public class BepInExLoader : BasePlugin
     {
         public const string
             MODNAME = "NPCDetails",
-            AUTHOR = "HisaCat",
-            GUID = "RF5." + AUTHOR + "." + MODNAME,
+            AUTHOR = "HisaCat (Updated by JoewAlanel)",
+            GUID = "Joew_RF5." + AUTHOR + "." + MODNAME,
             VERSION = "1.3.1";
 
         public static BepInEx.Logging.ManualLogSource log;
 
         public static string GetPluginRootDirectory()
         {
-            return System.IO.Path.GetDirectoryName(BepInEx.IL2CPP.IL2CPPChainloader.Instance.Plugins[GUID].Location);
+            return System.IO.Path.GetDirectoryName(BepInEx.Unity.IL2CPP.IL2CPPChainloader.Instance.Plugins[GUID].Location);
         }
 
         public BepInExLoader()
